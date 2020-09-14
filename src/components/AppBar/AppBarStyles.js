@@ -7,7 +7,8 @@ export default makeStyles({
       alignItems: 'center',
       '& h1': {
          fontWeight: '400',
-         letterSpacing: '1px'
+         letterSpacing: '1px',
+         color: isDark => !isDark ? 'black' : 'white'
       }
    }
 })

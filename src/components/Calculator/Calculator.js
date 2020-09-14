@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { ThemeContext } from '../../contexts/ThemeContext'
 import CalculatorStyles from './CalculatorStyles'
 import { evaluate } from 'mathjs'
 import Paper from '@material-ui/core/Paper';
@@ -7,7 +8,8 @@ import AppBar from '../AppBar/AppBar'
 import ButtonGrid from '../ButtonGrid/ButtonGrid'
 
 export default function Calculator() {
-   const classes = CalculatorStyles()
+   const { isDark } = useContext(ThemeContext);
+   const classes = CalculatorStyles(isDark)
    const [input, setInput] = useState('0')
    
    const inputChange = (val) => {
@@ -32,7 +34,7 @@ export default function Calculator() {
    
    return (
       <div className={classes.root}>
-         <Paper className={classes.paper}>
+         <Paper className={classes.paper} style={{ backgroundColor: isDark ? 'red' : ''}}>
             <AppBar />
             <InputDisplay displayValue={input}/>
             <ButtonGrid inputChange={inputChange} inputClear={inputClear} evaluateInput={evaluateInput}/>
