@@ -1,4 +1,4 @@
-## Calculator for AESTH
+## Basic Calculator
 
 Demo link:
 
